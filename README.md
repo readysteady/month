@@ -131,7 +131,7 @@ month = January 2014
 date = January 15, 2014
 ```
 
-It is not included globall by default; you can either include it within
+It is not included globally by default; you can either include it within
 your own modules/classes or globally within your own application/script.
 
 
