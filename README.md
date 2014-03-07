@@ -5,11 +5,16 @@ month
 A little library for working with months.
 
 
+Installation
+------------
+
+    $ gem install month
+
+
 Feature tour
 ------------
 
-You can create a new Month object by passing the year and the month number
-as arguments to the constructor:
+You can create a new Month object with a year and month number:
 
 ```ruby
 Month.new(2014, 1)  # January 2014
@@ -126,5 +131,13 @@ month = January 2014
 date = January 15, 2014
 ```
 
-It is not included by default, you can either include it within your
-own modules/classes or globally within your application/script.
+It is not included globall by default; you can either include it within
+your own modules/classes or globally within your own application/script.
+
+
+History
+-------
+
+This current implementation is an accidental rewrite of an older library/gem
+with the same name/purpose ([fhwang / month](https://github.com/fhwang/month)).
+Thanks to Francis for kindly allowing me to re-use the same gem name.
