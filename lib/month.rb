@@ -89,14 +89,17 @@ class Month
   end
 
   def -(number)
-    if @number > number
-      self.class.new(@year, @number - number)
-    elsif @number < number
-      a, b = (@number - number).divmod(12)
-
-      self.class.new(@year + a, b)
-    else
-      self.class.new(@year - 1, 12)
+    if number.class==Fixnum
+      if @number > number
+        self.class.new(@year, @number - number)
+      elsif @number < number
+        a, b = (@number - number).divmod(12)
+        self.class.new(@year + a, b)
+      else
+        self.class.new(@year - 1, 12)
+      end
+    elsif number.class==self.class
+      (number...self).to_a.size
     end
   end
 
