@@ -83,7 +83,7 @@ Month.new(2014, 1) - 1  # December 2013
 ```
 Subtraction operator can also return the difference of two months:
 ```ruby
-Month.new(2014, 1)-Month.new(2013, 1)  # 12
+Month.new(2014, 1) - Month.new(2013, 1)  # 12
 ```
 
 The #step method iterates between 2 months, similar to Date#step:
