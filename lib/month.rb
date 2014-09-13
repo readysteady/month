@@ -99,7 +99,7 @@ class Month
         self.class.new(@year - 1, 12)
       end
     elsif number.class==self.class
-      (number...self).to_a.size
+      (self.year * 12 + self.number) - (number.year * 12 + number.number)
     end
   end
 
