@@ -127,7 +127,7 @@ describe 'Month' do
       (Month.new(2014, 1) - 18).must_equal(Month.new(2012, 7))
     end
     it 'returns the difference of two Month objects, given a Month' do
-      (Month.new(2077, 4)-Month.new(2070, 4)).must_equal(84)
+      (Month.new(2077, 4) - Month.new(2070, 4)).must_equal(84)
     end
   end
 
