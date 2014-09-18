@@ -83,9 +83,8 @@ class Month
   end
 
   def +(number)
-    a, b = (@number + number).divmod(12)
-
-    self.class.new(@year + a, b)
+    a, b = (@number - 1 + number).divmod(12)
+    self.class.new(@year + a, b + 1)
   end
 
   def -(number)
