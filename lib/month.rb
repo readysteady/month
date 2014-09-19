@@ -84,19 +84,12 @@ class Month
 
   def +(number)
     a, b = (@number - 1 + number).divmod(12)
+
     self.class.new(@year + a, b + 1)
   end
 
   def -(number)
-    if @number > number
-      self.class.new(@year, @number - number)
-    elsif @number < number
-      a, b = (@number - number).divmod(12)
-
-      self.class.new(@year + a, b)
-    else
-      self.class.new(@year - 1, 12)
-    end
+    self + (-number)
   end
 
   def include?(date)
