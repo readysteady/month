@@ -130,6 +130,12 @@ describe 'Month' do
       (Month.new(2013, 12) - 1).must_equal(Month.new(2013, 11))
       (Month.new(2014, 1) - 2).must_equal(Month.new(2013, 11))
     end
+
+    it 'returns the number of months between the given month and self' do
+      (Month.new(2014, 3) - Month.new(2014, 1)).must_equal(2)
+      (Month.new(2015, 1) - Month.new(2014, 1)).must_equal(12)
+      (Month.new(2077, 4) - Month.new(2070, 4)).must_equal(84)
+    end
   end
 
   describe 'include predicate method' do

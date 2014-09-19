@@ -88,8 +88,12 @@ class Month
     self.class.new(@year + a, b + 1)
   end
 
-  def -(number)
-    self + (-number)
+  def -(object)
+    if object.is_a?(Integer)
+      self + (-object)
+    else
+      (year * 12 + @number) - (object.year * 12 + object.number)
+    end
   end
 
   def include?(date)
