@@ -116,6 +116,8 @@ describe 'Month' do
       (Month.new(2014, 1) + 1).must_equal(Month.new(2014, 2))
       (Month.new(2014, 1) + 12).must_equal(Month.new(2015, 1))
       (Month.new(2014, 1) + 18).must_equal(Month.new(2015, 7))
+      (Month.new(2013, 11) + 1).must_equal(Month.new(2013, 12))
+      (Month.new(2013, 11) + 2).must_equal(Month.new(2014, 1))
     end
   end
 
@@ -125,6 +127,8 @@ describe 'Month' do
       (Month.new(2014, 1) - 1).must_equal(Month.new(2013, 12))
       (Month.new(2014, 1) - 12).must_equal(Month.new(2013, 1))
       (Month.new(2014, 1) - 18).must_equal(Month.new(2012, 7))
+      (Month.new(2013, 12) - 1).must_equal(Month.new(2013, 11))
+      (Month.new(2014, 1) - 2).must_equal(Month.new(2013, 11))
     end
   end
 
