@@ -109,8 +109,69 @@ describe 'Month' do
       months.next.must_equal(Month.new(2014, 2))
       months.next.must_equal(Month.new(2014, 3))
     end
+    
+    it 'raises ArgumentError when by == 0' do
+      proc {Month.new(2014, 1).step(Month.new(2014, 3), 0){ } }.must_raise ArgumentError
+    end
+    
+    it 'understands by argument (>0)' do
+      months = []
+    
+      Month.new(2014, 1).step(Month.new(2014, 3), 2) { |month| months << month }
+    
+      months.must_equal([Month.new(2014, 1), Month.new(2014, 3)])
+    end
+    
+    it 'understands by argument (<0)' do
+      months = []
+    
+      Month.new(2014, 3).step(Month.new(2014, 1), -1) { |month| months << month }
+    
+      months.must_equal([Month.new(2014, 3), Month.new(2014, 2), Month.new(2014, 1)])
+    end
+    
   end
-
+  
+  describe 'upto method' do
+    it 'calls the block for every month until the given limit' do
+      months = []
+  
+      Month.new(2014, 1).upto(Month.new(2014, 3)) { |month| months << month }
+  
+      months.must_equal([Month.new(2014, 1), Month.new(2014, 2), Month.new(2014, 3)])
+    end
+  
+    it 'returns an enumerator if no block was given' do
+      months = Month.new(2014, 1).upto(Month.new(2014, 3))
+  
+      months.must_be_instance_of(Enumerator)
+  
+      months.next.must_equal(Month.new(2014, 1))
+      months.next.must_equal(Month.new(2014, 2))
+      months.next.must_equal(Month.new(2014, 3))
+    end
+  end
+  
+  describe 'downto method' do
+    it 'calls the block for every month until the given limit' do
+      months = []
+  
+      Month.new(2014, 3).downto(Month.new(2014, 1)) { |month| months << month }
+  
+      months.must_equal([Month.new(2014, 3), Month.new(2014, 2), Month.new(2014, 1)])
+    end
+  
+    it 'returns an enumerator if no block was given' do
+      months = Month.new(2014, 3).downto(Month.new(2014, 1))
+  
+      months.must_be_instance_of(Enumerator)
+  
+      months.next.must_equal(Month.new(2014, 3))
+      months.next.must_equal(Month.new(2014, 2))
+      months.next.must_equal(Month.new(2014, 1))
+    end
+  end
+  
   describe 'addition' do
     it 'returns a month object denoting the given number of months after self' do
       (Month.new(2014, 1) + 1).must_equal(Month.new(2014, 2))
