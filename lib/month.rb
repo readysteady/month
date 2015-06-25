@@ -68,35 +68,36 @@ class Month
 
   alias_method :succ, :next
 
-  def step(limit, by = 1)
+  def step(limit, step = 1)
+    raise ArgumentError if step.zero?
+
     unless block_given?
-      return enum_for(:step, limit, by)
+      return enum_for(:step, limit, step)
     end
 
     month = self
 
-    raise ArgumentError if by == 0
-    if by > 0
+    if step > 0
       until month > limit
         yield month
-  
-        month += by
+
+        month += step
       end
     else
       until month < limit
         yield month
-  
-        month += by
+
+        month += step
       end
     end
   end
-  
-  def upto(limit, &block)
-    step limit, 1, &block
+
+  def upto(max, &block)
+    step(max, 1, &block)
   end
-  
-  def downto(limit, &block)
-    step limit, -1, &block
+
+  def downto(min, &block)
+    step(min, -1, &block)
   end
 
   def +(number)
