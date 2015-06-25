@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.authors = ['Tim Craft']
   s.email = ['mail@timcraft.com']
   s.homepage = 'http://github.com/timcraft/month'
-  s.description = 'A little library for working with months'
+  s.description = 'A little Ruby library for working with months'
   s.summary = 'See description'
   s.files = Dir.glob('{lib,spec}/**/*') + %w(README.md month.gemspec)
   s.required_ruby_version = '>= 1.9.3'

@@ -2,7 +2,7 @@ month
 =====
 
 
-A little library for working with months.
+A little Ruby library for working with months.
 
 
 Installation
