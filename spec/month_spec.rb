@@ -3,9 +3,16 @@ require 'minitest/autorun'
 require_relative '../lib/month'
 
 describe 'Month' do
-  it 'raises an exception when initialized with an invalid number' do
-    proc { Month.new(2014, 0) }.must_raise(ArgumentError)
-    proc { Month.new(2014, 100) }.must_raise(ArgumentError)
+  describe 'constructor' do
+    it 'raises an exception when initialized with an invalid number' do
+      proc { Month.new(2014, 0) }.must_raise(ArgumentError)
+      proc { Month.new(2014, 100) }.must_raise(ArgumentError)
+    end
+
+    it 'returns frozen instances' do
+      month = Month.new(2017, 1)
+      month.frozen?.must_equal(true)
+    end
   end
 
   describe 'year method' do
