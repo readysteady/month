@@ -22,6 +22,8 @@ class Month
     end
 
     @year, @number = year, number
+
+    freeze
   end
 
   attr_reader :year, :number
