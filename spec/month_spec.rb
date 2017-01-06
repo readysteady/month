@@ -84,6 +84,36 @@ describe 'Month' do
     range.map(&:number).must_equal([1, 2, 3, 4])
   end
 
+  it 'does not provide a year= setter' do
+    proc { Month.new(2016, 12).year = 2015 }.must_raise
+  end
+
+  it 'does not provide a number= setter' do
+    proc { Month.new(2016, 12).number = 11 }.must_raise
+  end
+
+  it 'forbids mutating year with #instance_variable_set' do
+    proc { Month.new(2016, 12).instance_variable_set('@year', 2015) }.must_raise
+  end
+
+  it 'forbids mutating month with #instance_variable_set' do
+    proc { Month.new(2016, 12).instance_variable_set('@month', 11) }.must_raise
+  end
+
+  class SubclassWithSetters < Month
+    attr_writer :year, :number
+  end
+
+  describe 'subclass with setters' do
+    it 'cannot mutate the year' do
+      proc { SubclassWithSetters.new(2016, 12).year = 2015 }.must_raise
+    end
+
+    it 'cannot mutate the number' do
+      proc { SubclassWithSetters.new(2016, 12).number = 11 }.must_raise
+    end
+  end
+
   describe 'next method' do
     it 'returns a month object denoting the next month' do
       Month.new(2014, 1).next.must_equal(Month.new(2014, 2))
