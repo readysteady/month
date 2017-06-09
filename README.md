@@ -1,18 +1,15 @@
-month
-=====
+# month
 
 
 A little Ruby library for working with months.
 
 
-Installation
-------------
+## Installation
 
     $ gem install month
 
 
-Feature tour
-------------
+## Feature tour
 
 You can create a new Month object with a year and month number:
 
@@ -117,8 +114,7 @@ Month objects can be used in ranges.
 Month objects are comparable.
 
 
-Bonus Extras
-------------
+## Bonus extras
 
 The Month::Methods module provides methods for constructing Month objects
 and Date objects in a manner that closely resembles written english:
@@ -135,8 +131,7 @@ It is not included globally by default; you can either include it within
 your own modules/classes or globally within your own application/script.
 
 
-History
--------
+## Thanks
 
 This current implementation is an accidental rewrite of an older library/gem
 with the same name/purpose ([fhwang / month](https://github.com/fhwang/month)).
