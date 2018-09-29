@@ -72,7 +72,7 @@ class Month
   end
 
   def to_i
-    (@year * 12) + @number
+    @year * 12 + @number
   end
 
   def name
@@ -155,7 +155,7 @@ class Month
     if object.is_a?(Integer)
       self + (-object)
     else
-      (year * 12 + @number) - (object.year * 12 + object.number)
+      to_i - object.to_i
     end
   end
 
