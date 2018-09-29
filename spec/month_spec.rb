@@ -254,6 +254,13 @@ describe 'Month' do
       Month.new(2014, 2).length.must_equal(28)
     end
   end
+
+  describe 'to_i method' do
+    it 'returns the year * 12 + month' do
+      Month.new(2014, 1).to_i.must_equal((2014 * 12) + 1)
+      Month.new(2014, 2).to_i.must_equal((2014 * 12) + 2)
+    end
+  end
 end
 
 describe 'Month parse method' do
@@ -263,6 +270,29 @@ describe 'Month parse method' do
 
   it 'raises an exception if the format of the string is not as expected' do
     proc { Month.parse('January 2014') }.must_raise(ArgumentError)
+  end
+end
+
+describe 'Month load method' do
+  it 'returns a Month object' do
+    Month.load(24151).must_equal(Month.new(2012, 7))
+    Month.load(24169).must_equal(Month.new(2014, 1))
+  end
+
+  it 'raises an exception if the argument is not an integer' do
+    proc { Month.load('January 2014') }.must_raise(ArgumentError)
+  end
+end
+
+describe 'Month dump method' do
+  it 'returns an Integer object' do
+    Month.dump(Month.new(2012, 7)).must_equal(24151)
+    Month.dump(Month.new(2014, 1)).must_equal(24169)
+
+  end
+
+  it 'raises an exception if the argument is not a Month' do
+    proc { Month.dump(24151) }.must_raise(ArgumentError)
   end
 end
 

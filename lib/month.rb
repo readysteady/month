@@ -16,6 +16,45 @@ class Month
     12 => :December
   }
 
+  class << self
+    def load(month_as_integer)
+      raise_load_error(month_as_integer) unless month_as_integer.is_a?(Integer)
+      year, number = month_as_integer.divmod(12)
+      self.new(year, number)
+    end
+
+    def dump(month)
+      raise_dump_error(month) unless month.is_a?(self)
+      month.to_i
+    end
+
+    def parse(string)
+      if string =~ /\A(\d{4})-(\d{2})\z/
+        Month.new($1.to_i, $2.to_i)
+      else
+        raise ArgumentError, 'invalid month'
+      end
+    end
+
+    private
+
+    def active_record?
+      Object.const_defined?("::ActiveRecord::SerializationTypeMismatch")
+    end
+
+    def argument_error_class
+      active_record? ? ::ActiveRecord::SerializationTypeMismatch : ArgumentError
+    end
+
+    def raise_load_error(obj)
+      raise argument_error_class, "Argument was supposed to be an Integer, but was a #{obj.class}. -- #{obj.inspect}"
+    end
+
+    def raise_dump_error(obj)
+      raise argument_error_class, "Argument was supposed to be a #{self}, but was a #{obj.class}. -- #{obj.inspect}"
+    end
+  end
+
   def initialize(year, number)
     unless NAMES.has_key?(number)
       raise ArgumentError, 'invalid month number'
@@ -30,6 +69,10 @@ class Month
 
   def to_s
     "#@year-#{@number.to_s.rjust(2, '0')}"
+  end
+
+  def to_i
+    (@year * 12) + @number
   end
 
   def name
@@ -136,14 +179,6 @@ class Month
 
   def length
     end_date.mday
-  end
-end
-
-def Month.parse(string)
-  if string =~ /\A(\d{4})-(\d{2})\z/
-    Month.new($1.to_i, $2.to_i)
-  else
-    raise ArgumentError, 'invalid month'
   end
 end
 
