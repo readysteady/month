@@ -91,10 +91,36 @@ describe 'Month' do
     end
   end
 
+  describe '>> method' do
+    it 'returns a month object denoting the next month' do
+      (Month.new(2014, 1) >> 1).must_equal(Month.new(2014, 2))
+      (Month.new(2014, 12) >> 1).must_equal(Month.new(2015, 1))
+      (Month.new(2014, 12) >> -1).must_equal(Month.new(2014, 11))
+    end
+    it 'returns a month object denoting n months after' do
+      (Month.new(2014, 1) >> 5).must_equal(Month.new(2014, 6))
+      (Month.new(2014, 12) >> 5).must_equal(Month.new(2015, 5))
+      (Month.new(2014, 12) >> -5).must_equal(Month.new(2014, 7))
+    end
+  end
+
   describe 'succ method' do
     it 'returns a month object denoting the next month' do
       Month.new(2014, 1).succ.must_equal(Month.new(2014, 2))
       Month.new(2014, 12).succ.must_equal(Month.new(2015, 1))
+    end
+  end
+
+  describe '<< method' do
+    it 'returns a month object denoting the next month' do
+      (Month.new(2014, 1) << 1).must_equal(Month.new(2013, 12))
+      (Month.new(2014, 12) << 1).must_equal(Month.new(2014, 11))
+      (Month.new(2014, 12) << -1).must_equal(Month.new(2015, 1))
+    end
+    it 'returns a month object denoting n months after' do
+      (Month.new(2014, 1) << 5).must_equal(Month.new(2013, 8))
+      (Month.new(2014, 12) << 5).must_equal(Month.new(2014, 7))
+      (Month.new(2014, 12) << -5).must_equal(Month.new(2015, 5))
     end
   end
 
