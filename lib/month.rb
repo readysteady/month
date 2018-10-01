@@ -72,6 +72,18 @@ class Month
 
   alias_method :succ, :next
 
+  def >>(n)
+    self + n
+  end
+
+  alias_method :next_month, :>>
+
+  def <<(n)
+    self - n
+  end
+
+  alias_method :prev_month, :<<
+
   def step(limit, step = 1)
     raise ArgumentError if step.zero?
 

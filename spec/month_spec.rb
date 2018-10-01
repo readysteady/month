@@ -102,6 +102,22 @@ describe 'Month' do
     end
   end
 
+  describe '>> method' do
+    it 'returns a month object denoting n months after' do
+      (Month.new(2014, 1) >> 5).must_equal(Month.new(2014, 6))
+      (Month.new(2014, 12) >> 5).must_equal(Month.new(2015, 5))
+      (Month.new(2014, 12) >> -5).must_equal(Month.new(2014, 7))
+    end
+  end
+
+  describe '<< method' do
+    it 'returns a month object denoting n months before' do
+      (Month.new(2014, 1) << 5).must_equal(Month.new(2013, 8))
+      (Month.new(2014, 12) << 5).must_equal(Month.new(2014, 7))
+      (Month.new(2014, 12) << -5).must_equal(Month.new(2015, 5))
+    end
+  end
+
   describe 'step method' do
     it 'calls the block for every month until the given limit' do
       months = []
