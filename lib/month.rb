@@ -17,7 +17,7 @@ class Month
   }
 
   def initialize(year, number)
-    unless NAMES.has_key?(number)
+    unless NAMES.key?(number)
       raise ArgumentError, 'invalid month number'
     end
 
