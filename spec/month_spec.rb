@@ -78,6 +78,10 @@ describe 'Month' do
     (Month.new(2014, 2) > Month.new(2014, 1)).must_equal(true)
   end
 
+  it 'supports comparison with nil' do
+    (Month.new(2014, 1) == nil).must_equal(false)
+  end
+
   it 'supports being used in a range' do
     range = Month.new(2014, 1) .. Month.new(2014, 4)
 

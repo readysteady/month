@@ -51,6 +51,8 @@ class Month
   end
 
   def <=>(month)
+    return unless month.class == self.class
+
     if @year == month.year
       @number <=> month.number
     else
