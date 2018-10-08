@@ -1,3 +1,7 @@
+# 1.4.0
+
+  * Fixed comparison with nil objects / ActiveRecord serialization
+
 # 1.3.0
 
   * Month objects are now frozen on initialization (@replaid, #4)
