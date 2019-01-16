@@ -1,3 +1,11 @@
+# 1.5.0
+
+  * Added Month#<< and Month#>> methods (@pboling)
+
+  * Added Month.today method
+
+  * Added Month.now method
+
 # 1.4.0
 
   * Fixed comparison with nil objects / ActiveRecord serialization
