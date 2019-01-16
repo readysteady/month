@@ -126,7 +126,7 @@ class Month
     if object.is_a?(Integer)
       self + (-object)
     else
-      (year * 12 + @number) - (object.year * 12 + object.number)
+      12 * (year - object.year) + (@number - object.number)
     end
   end
 
