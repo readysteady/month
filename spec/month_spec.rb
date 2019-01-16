@@ -319,6 +319,15 @@ describe 'Month today method' do
   end
 end
 
+describe 'Month now method' do
+  let(:current_time) { Time.now }
+  let(:current_month) { Month.new(current_time.year, current_time.month) }
+
+  it 'returns the current month' do
+    Month.now.must_equal(current_month)
+  end
+end
+
 describe 'A method defined in Month::Methods' do
   include Month::Methods
 
