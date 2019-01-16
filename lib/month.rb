@@ -172,6 +172,10 @@ def Month(object)
   end
 end
 
+def Month.today
+  Month(Date.today)
+end
+
 class Month
   module Methods
     NAMES.each do |number, name|
