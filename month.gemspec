@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/timcraft/month'
   s.description = 'A little Ruby library for working with months'
   s.summary = 'See description'
-  s.files = Dir.glob('{lib,spec}/**/*') + %w(LICENSE.txt README.md month.gemspec)
+  s.files = Dir.glob('lib/**/*.rb') + %w(LICENSE.txt README.md month.gemspec)
   s.required_ruby_version = '>= 1.9.3'
   s.require_path = 'lib'
 end
