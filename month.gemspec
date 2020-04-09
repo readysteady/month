@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.authors = ['Tim Craft']
   s.email = ['mail@timcraft.com']
-  s.homepage = 'https://github.com/timcraft/month'
+  s.homepage = 'https://github.com/readysteady/month'
   s.description = 'A little Ruby library for working with months'
   s.summary = 'See description'
   s.files = Dir.glob('lib/**/*.rb') + %w(LICENSE.txt README.md month.gemspec)

@@ -1,7 +1,7 @@
 # month
 
 ![Gem Version](https://badge.fury.io/rb/month.svg)
-![Build Status](https://github.com/timcraft/month/workflows/Test/badge.svg)
+![Build Status](https://github.com/readysteady/month/workflows/Test/badge.svg)
 
 
 A little Ruby library for working with months.
