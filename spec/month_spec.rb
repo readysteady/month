@@ -40,6 +40,12 @@ describe 'Month' do
     end
   end
 
+  describe 'iso8601 method' do
+    it 'returns a string containing the year and zero padded number of the month' do
+      Month.new(2014, 1).iso8601.must_equal('2014-01')
+    end
+  end
+
   describe 'name method' do
     it 'returns the name of the month' do
       Month.new(2014, 1).name.must_equal(:January)

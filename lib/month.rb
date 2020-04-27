@@ -35,6 +35,8 @@ class Month
     "#@year-#{@number.to_s.rjust(2, '0')}"
   end
 
+  alias_method :iso8601, :to_s
+
   def name
     NAMES.fetch(@number)
   end
