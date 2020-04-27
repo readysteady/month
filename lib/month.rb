@@ -29,6 +29,8 @@ class Month
 
   attr_reader :year, :number
 
+  alias_method :month, :number
+
   def to_s
     "#@year-#{@number.to_s.rjust(2, '0')}"
   end

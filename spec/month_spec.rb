@@ -28,6 +28,12 @@ describe 'Month' do
     end
   end
 
+  describe 'month method' do
+    it 'returns the integer number of the month' do
+      Month.new(2014, 1).month.must_equal(1)
+    end
+  end
+
   describe 'to_s method' do
     it 'returns a string containing the year and zero padded number of the month' do
       Month.new(2014, 1).to_s.must_equal('2014-01')
