@@ -158,11 +158,17 @@ class Month
   end
 end
 
-def Month.parse(string)
-  if string =~ /\A(\d{4})-(\d{2})\z/
-    Month.new($1.to_i, $2.to_i)
-  else
-    raise ArgumentError, 'invalid month'
+class Month
+  REGEXP = /\A(\d{4})-(\d{2})\z/
+
+  private_constant :REGEXP
+
+  def self.parse(string)
+    if string =~ REGEXP
+      Month.new($1.to_i, $2.to_i)
+    else
+      raise ArgumentError, 'invalid month'
+    end
   end
 end
 
