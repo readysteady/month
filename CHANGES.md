@@ -1,3 +1,9 @@
+# 1.6.0
+
+  * Added Month#month alias for Month#number
+
+  * Added Month#iso8601 alias for Month#to_s
+
 # 1.5.0
 
   * Added Month#<< and Month#>> methods (@pboling)
