@@ -7,7 +7,13 @@
 Ruby gem for working with months.
 
 
-## Installation
+## Install
+
+Using Bundler:
+
+    $ bundle add month
+
+Using RubyGems:
 
     $ gem install month
 
