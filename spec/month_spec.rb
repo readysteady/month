@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/global_expectations'
 
 require_relative '../lib/month'
+require_relative '../lib/month/yaml'
 
 describe 'Month' do
   describe 'constructor' do
@@ -362,5 +363,17 @@ describe 'A method defined in Month::Methods' do
 
   it 'raises an exception if given too many arguments' do
     proc { January 1, 2, 3 }.must_raise(ArgumentError)
+  end
+end
+
+describe 'YAML' do
+  let(:month) { Month.new(2014, 1) }
+
+  it 'dumps month objects' do
+    YAML.dump([month]).must_equal("---\n- 2014-01\n")
+  end
+
+  it 'loads month objects' do
+    YAML.load("---\n- 2014-01\n").must_equal([month])
   end
 end
