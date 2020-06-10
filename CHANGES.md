@@ -1,3 +1,15 @@
+# 1.7.0
+
+* Added optional YAML integration
+
+This makes it possible to dump/load month objects to/from YAML as scalar values. For example:
+
+    require 'month/yaml'
+
+    puts YAML.dump([Month.today])
+
+This functionality is not enabled by default, due to the use of Module#prepend.
+
 # 1.6.0
 
 * Added Month#month alias for Month#number
