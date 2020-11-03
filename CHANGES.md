@@ -1,3 +1,9 @@
+# 1.7.1
+
+* Added CHANGES.md to gem files
+
+* Fixed outdated changelog_uri
+
 # 1.7.0
 
 * Added optional YAML integration

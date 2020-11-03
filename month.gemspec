@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'month'
-  s.version = '1.7.0'
+  s.version = '1.7.1'
   s.license = 'MIT'
   s.platform = Gem::Platform::RUBY
   s.authors = ['Tim Craft']
