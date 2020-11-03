@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
     'homepage' => 'https://github.com/readysteady/month',
     'source_code_uri' => 'https://github.com/readysteady/month',
     'bug_tracker_uri' => 'https://github.com/readysteady/month/issues',
-    'changelog_uri' => 'https://github.com/readysteady/month/blob/master/CHANGES.md'
+    'changelog_uri' => 'https://github.com/readysteady/month/blob/main/CHANGES.md'
   }
 end
