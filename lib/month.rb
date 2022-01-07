@@ -32,7 +32,7 @@ class Month
   alias_method :month, :number
 
   def to_s
-    "#@year-#{@number.to_s.rjust(2, '0')}"
+    "#{@year}-#{@number.to_s.rjust(2, '0')}"
   end
 
   alias_method :iso8601, :to_s
