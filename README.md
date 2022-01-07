@@ -1,7 +1,7 @@
 # month
 
 ![Gem Version](https://badge.fury.io/rb/month.svg)
-![Build Status](https://github.com/readysteady/month/workflows/Test/badge.svg)
+![Test Status](https://github.com/readysteady/month/actions/workflows/test.yml/badge.svg)
 
 
 Ruby gem for working with months.
