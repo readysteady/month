@@ -161,13 +161,34 @@ class Month
 end
 
 class Month
-  REGEXP = /\A(\d{4})-(\d{2})\z/
+  ABBREVIATIONS = {
+    'JAN' => 1,
+    'FEB' => 2,
+    'MAR' => 3,
+    'APR' => 4,
+    'MAY' => 5,
+    'JUN' => 6,
+    'JUL' => 7,
+    'AUG' => 8,
+    'SEP' => 9,
+    'OCT' => 10,
+    'NOV' => 11,
+    'DEC' => 12,
+  }
 
-  private_constant :REGEXP
+  REGEXP1 = /\A(\d{4})-(\d{2})\z/
+  REGEXP2 = /\A(\d{4}) (#{ABBREVIATIONS.keys.join('|')})\z/
+
+  private_constant :ABBREVIATIONS
+  private_constant :REGEXP1
+  private_constant :REGEXP2
 
   def self.parse(string)
-    if string =~ REGEXP
+    case string
+    when REGEXP1
       Month.new($1.to_i, $2.to_i)
+    when REGEXP2
+      Month.new($1.to_i, ABBREVIATIONS.fetch($2))
     else
       raise ArgumentError, 'invalid month'
     end
