@@ -137,8 +137,8 @@ class Month
     end
   end
 
-  def include?(date)
-    @year == date.year && @number == date.month
+  def include?(time)
+    @year == time.year && @number == time.month
   end
 
   alias_method :===, :include?

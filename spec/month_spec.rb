@@ -270,7 +270,8 @@ RSpec.describe 'Month' do
   end
 
   describe '#include?' do
-    it 'returns true if the month includes the given date' do
+    it 'returns true if the month includes the given time or date' do
+      expect(Month.new(2014, 1).include?(Time.local(2014, 1, 1))).to eq(true)
       expect(Month.new(2014, 1).include?(Date.new(2014, 1, 1))).to eq(true)
     end
 
