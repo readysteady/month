@@ -120,6 +120,20 @@ RSpec.describe 'Month' do
     end
   end
 
+  describe '#next_month' do
+    it 'returns a month object denoting the next month' do
+      expect(Month.new(2014, 1).next_month).to eq(Month.new(2014, 2))
+      expect(Month.new(2014, 12).next_month).to eq(Month.new(2015, 1))
+    end
+  end
+
+  describe '#prev_month' do
+    it 'returns a month object denoting the previous month' do
+      expect(Month.new(2014, 1).prev_month).to eq(Month.new(2013, 12))
+      expect(Month.new(2014, 12).prev_month).to eq(Month.new(2014, 11))
+    end
+  end
+
   describe '#>>' do
     it 'returns a month object denoting n months after' do
       expect(Month.new(2014, 1) >> 5).to eq(Month.new(2014, 6))
