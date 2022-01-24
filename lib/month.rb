@@ -210,10 +210,6 @@ def Month(object)
   end
 end
 
-def Month.today
-  Month(Date.today)
-end
-
 def Month.now
   Month(Time.now)
 end

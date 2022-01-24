@@ -357,15 +357,6 @@ RSpec.describe 'Month method' do
   end
 end
 
-RSpec.describe 'Month.today method' do
-  let(:current_date) { Date.today }
-  let(:current_month) { Month.new(current_date.year, current_date.month) }
-
-  it 'returns the current month' do
-    expect(Month.today).to eq(current_month)
-  end
-end
-
 RSpec.describe 'Month.now method' do
   let(:current_time) { Time.now }
   let(:current_month) { Month.new(current_time.year, current_time.month) }
