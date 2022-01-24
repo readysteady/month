@@ -1,3 +1,15 @@
+# 2.0.0
+
+* Changed required_ruby_version to >= 2.6.0
+
+* Fixed Month#next_month and Month#prev_month methods
+
+* Added functionality for parsing strings like '2014 JAN'
+
+* Added functionality for parsing strings like 'January 2014'
+
+* Removed Month.today method in favour of Month.now method
+
 # 1.7.1
 
 * Added CHANGES.md to gem files
