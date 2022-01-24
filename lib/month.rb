@@ -178,10 +178,12 @@ class Month
 
   REGEXP1 = /\A(\d{4})-(\d{2})\z/
   REGEXP2 = /\A(\d{4}) (#{ABBREVIATIONS.keys.join('|')})\z/
+  REGEXP3 = /\A(#{Date::MONTHNAMES.compact.join('|')}) (\d{4})\z/
 
   private_constant :ABBREVIATIONS
   private_constant :REGEXP1
   private_constant :REGEXP2
+  private_constant :REGEXP3
 
   def self.parse(string)
     case string
@@ -189,6 +191,8 @@ class Month
       Month.new($1.to_i, $2.to_i)
     when REGEXP2
       Month.new($1.to_i, ABBREVIATIONS.fetch($2))
+    when REGEXP3
+      Month.new($2.to_i, Date::MONTHNAMES.index($1))
     else
       raise ArgumentError, 'invalid month'
     end

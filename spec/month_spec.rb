@@ -324,10 +324,11 @@ RSpec.describe 'Month.parse method' do
   it 'returns the month corresponding to the given string representation' do
     expect(Month.parse('2014-01')).to eq(Month.new(2014, 1))
     expect(Month.parse('2014 JAN')).to eq(Month.new(2014, 1))
+    expect(Month.parse('January 2014')).to eq(Month.new(2014, 1))
   end
 
   it 'raises an exception if the format of the string is not as expected' do
-    expect { Month.parse('January 2014') }.to raise_error(ArgumentError)
+    expect { Month.parse('Other') }.to raise_error(ArgumentError)
   end
 end
 
