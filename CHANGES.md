@@ -1,3 +1,7 @@
+# 2.1.0
+
+* Added Month#inspect method
+
 # 2.0.0
 
 * Changed required_ruby_version to >= 2.6.0
