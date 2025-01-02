@@ -36,14 +36,20 @@ RSpec.describe 'Month' do
   end
 
   describe '#to_s' do
-    it 'returns a string containing the year and zero padded number of the month' do
+    it 'returns a string containing the year and number' do
       expect(Month.new(2014, 1).to_s).to eq('2014-01')
     end
   end
 
   describe '#iso8601' do
-    it 'returns a string containing the year and zero padded number of the month' do
+    it 'returns a string containing the year and number' do
       expect(Month.new(2014, 1).iso8601).to eq('2014-01')
+    end
+  end
+
+  describe '#inspect' do
+    it 'returns a string containing the year and number' do
+      expect(Month.new(2014, 1).inspect).to eq('<Month: 2014-01>')
     end
   end
 

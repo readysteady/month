@@ -37,6 +37,10 @@ class Month
 
   alias_method :iso8601, :to_s
 
+  def inspect
+    "<Month: #{to_s}>"
+  end
+
   def name
     NAMES.fetch(@number)
   end
