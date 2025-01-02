@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.platform = Gem::Platform::RUBY
   s.authors = ['Tim Craft']
-  s.email = ['mail@timcraft.com']
+  s.email = ['email@timcraft.com']
   s.homepage = 'https://github.com/readysteady/month'
   s.description = 'Ruby gem for working with months'
   s.summary = 'See description'
