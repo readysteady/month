@@ -2,23 +2,8 @@
 require 'date'
 
 class Month
-  NAMES = {
-    1 => :January,
-    2 => :February,
-    3 => :March,
-    4 => :April,
-    5 => :May,
-    6 => :June,
-    7 => :July,
-    8 => :August,
-    9 => :September,
-    10 => :October,
-    11 => :November,
-    12 => :December
-  }
-
   def initialize(year, number)
-    unless NAMES.key?(number)
+    unless number.is_a?(Integer) && number.between?(1, 12)
       raise ArgumentError, 'invalid month number'
     end
 
@@ -42,14 +27,21 @@ class Month
   end
 
   def name
-    NAMES.fetch(@number)
+    Date::MONTHNAMES[@number].to_sym
   end
 
-  NAMES.each do |number, name|
-    define_method(:"#{name.downcase}?") do
-      @number == number
-    end
-  end
+  def january?; @number == 1; end
+  def february?; @number == 2; end
+  def march?; @number == 3; end
+  def april?; @number == 4; end
+  def may?; @number == 5; end
+  def june?; @number == 6; end
+  def july?; @number == 7; end
+  def august?; @number == 8; end
+  def september?; @number == 9; end
+  def october?; @number == 10; end
+  def november?; @number == 11; end
+  def december?; @number == 12; end
 
   def hash
     [@year, @number].hash
@@ -220,7 +212,9 @@ end
 
 class Month
   module Methods
-    NAMES.each do |number, name|
+    Date::MONTHNAMES.each_with_index do |name, number|
+      next if name.nil?
+
       define_method(name) do |*args|
         case args.length
         when 1

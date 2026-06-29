@@ -9,6 +9,18 @@ RSpec.describe 'Month' do
       expect(month.frozen?).to eq(true)
     end
 
+    it 'works with ractors', if: defined?(Ractor) do
+      ractor = Ractor.new { Month.new(2014, 1) }
+
+      if ractor.respond_to?(:join)
+        ractor.join
+
+        expect(ractor.value).to eq(Month.new(2014, 1))
+      else
+        expect(ractor.take).to eq(Month.new(2014, 1))
+      end
+    end
+
     context 'with an invalid number' do
       it 'raises an exception' do
         expect { Month.new(2014, 0) }.to raise_error(ArgumentError)
