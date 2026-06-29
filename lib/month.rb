@@ -52,7 +52,7 @@ class Month
   end
 
   def eql?(object)
-    object.class == self.class && object.hash == self.hash
+    object.class == self.class && object.year == @year && object.number == @number
   end
 
   def <=>(month)
