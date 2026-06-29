@@ -3,6 +3,10 @@ require 'date'
 
 class Month
   def initialize(year, number)
+    unless year.is_a?(Integer)
+      raise ArgumentError, 'invalid year'
+    end
+
     unless number.is_a?(Integer) && number.between?(1, 12)
       raise ArgumentError, 'invalid month number'
     end

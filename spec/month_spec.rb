@@ -21,7 +21,13 @@ RSpec.describe 'Month' do
       end
     end
 
-    context 'with an invalid number' do
+    context 'with an invalid year' do
+      it 'raises an exception' do
+        expect { Month.new('foo', 1) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with an invalid month number' do
       it 'raises an exception' do
         expect { Month.new(2014, 0) }.to raise_error(ArgumentError)
         expect { Month.new(2014, 100) }.to raise_error(ArgumentError)
