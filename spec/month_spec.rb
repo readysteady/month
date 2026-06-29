@@ -108,6 +108,12 @@ RSpec.describe 'Month' do
     end
   end
 
+  describe '#deconstruct_keys' do
+    it 'returns a hash with year and number keys' do
+      expect(Month.new(2014, 1).deconstruct_keys([:year, :number])).to eq({year: 2014, number: 1})
+    end
+  end
+
   describe '#<=>' do
     it 'supports comparison between month objects' do
       expect(Month.new(2014, 1)).to be_kind_of(Comparable)

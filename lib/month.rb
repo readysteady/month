@@ -55,6 +55,10 @@ class Month
     object.class == self.class && object.year == @year && object.number == @number
   end
 
+  def deconstruct_keys(keys)
+    {year: @year, number: @number}
+  end
+
   def <=>(month)
     return unless month.class == self.class
 
