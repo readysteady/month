@@ -73,7 +73,7 @@ RSpec.describe 'Month' do
 
   describe '#name' do
     it 'returns the name of the month' do
-      expect(Month.new(2014, 1).name).to eq(:January)
+      expect(Month.new(2014, 1).name).to eq('January')
     end
   end
 

@@ -31,7 +31,7 @@ class Month
   end
 
   def name
-    Date::MONTHNAMES[@number].to_sym
+    Date::MONTHNAMES[@number]
   end
 
   def january?; @number == 1; end
