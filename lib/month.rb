@@ -147,6 +147,10 @@ class Month
 
   alias_method :===, :include?
 
+  def start_time
+    Time.new(@year, @number, 1, 0, 0, 0)
+  end
+
   def start_date
     Date.new(@year, @number, 1)
   end
