@@ -1,10 +1,6 @@
 # month
 
-![Gem Version](https://badge.fury.io/rb/month.svg)
-![Test Status](https://github.com/readysteady/month/actions/workflows/test.yml/badge.svg)
-
-
-Ruby gem for working with months.
+Ruby gem for working with calendar months.
 
 
 ## Install
@@ -114,13 +110,36 @@ The #length method returns the number of days in the month:
 Month.new(2014, 1).length  # 31
 ```
 
-Month objects can be used in case expressions.
+Month objects can be used in case expressions to match date/time objects:
 
-Month objects can be used as hash keys.
+```ruby
+case datetime
+when month
+  puts "Date/time is in #{month}"
+end
+```
 
-Month objects can be used in ranges.
+Month objects can be used as hash keys for counting, grouping etc:
 
-Month objects are comparable.
+```ruby
+totals = {
+  Month.new(2014, 1) => 0
+}
+```
+
+Month objects can be used in ranges:
+
+```ruby
+months = Month.new(2014, 1) .. Month.new(2014, 12)
+```
+
+Month objects are comparable:
+
+```ruby
+Month.new(2014, 1) < Month.new(2014, 2)  # true
+```
+
+Month objects are ractor-safe.
 
 
 ## Bonus extras
