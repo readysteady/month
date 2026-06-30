@@ -326,6 +326,12 @@ RSpec.describe 'Month' do
     end
   end
 
+  describe '#end_time' do
+    it 'returns a time object at the end of the month' do
+      expect(Month.new(2014, 1).end_time).to eq(Time.new(2014, 1, 31, 23, 59, 59))
+    end
+  end
+
   describe '#start_date' do
     it 'returns a date object denoting the first day of the month' do
       expect(Month.new(2014, 1).start_date).to eq(Date.new(2014, 1, 1))

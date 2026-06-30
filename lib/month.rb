@@ -151,6 +151,10 @@ class Month
     Time.new(@year, @number, 1, 0, 0, 0)
   end
 
+  def end_time
+    Time.new(@year, @number, end_date.day, 23, 59, 59)
+  end
+
   def start_date
     Date.new(@year, @number, 1)
   end
