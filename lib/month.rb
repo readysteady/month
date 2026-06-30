@@ -167,6 +167,8 @@ class Month
     start_date .. end_date
   end
 
+  alias_method :date_range, :dates
+
   def length
     end_date.mday
   end
