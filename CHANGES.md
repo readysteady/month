@@ -1,10 +1,24 @@
+# 3.0.0
+
+* **Changed required_ruby_version to >= 3.0.0**
+
+* Added Month#deconstruct_keys method
+
+* Added Month#date_range alias for Month#dates
+
+* Added Month#start_time method and Month#end_time methods
+
+* Changed Month#name to return strings instead of symbols
+
+* Removed Month::NAMES constant
+
 # 2.1.0
 
 * Added Month#inspect method
 
 # 2.0.0
 
-* Changed required_ruby_version to >= 2.6.0
+* **Changed required_ruby_version to >= 2.6.0**
 
 * Fixed Month#next_month and Month#prev_month methods
 
